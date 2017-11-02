@@ -724,8 +724,58 @@ tom 123 login tom 789
 
 ```
 
+#### 7.3、操作符
 
+##### `in`操作符
+
+##### 相等与不相等操作符
+
+- ===  和 !==（两个引用指向同一个对象）
+- == 和 != （使用equals()判断）
+
+##### Elvis操作符 ?:
+
+在Kotlin中，Elvis操作符特定跟null比较，主要用来作null安全性检查。
+
+```
+val x = null
+
+val y = x?:0// 等价 if(x!==null) x else 0
+
+println(y)
+```
+
+`?:`:如果第一个操作数为真，则返回第一个操作数否则将计算并返回第二个操作数。
+
+Kotlin中没有这样的三元运算发 `true?1:0`，取而代之的是 `if(true) 1 else 0`,Elvis是精简版的三元运算符
 
 ### 8、扩展函数和扩展属性
 
+略
+
 ### 9、空指针安全
+
+在Kotlin中一个非空引用不能赋值为null，例如：
+
+```
+var a = "123"
+        
+a = null  //Null can not be a value of a non-null type String
+
+```
+
+如果要允许为空，我们介意在变量的类型后面加上一个问号？来声明一个变量可以为空，例如：
+
+```
+@Test
+fun testNull() {
+
+    var x: String? = "abc"
+
+    x = null
+
+    // val b = x.length  Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String?
+    
+    println(x?.length)
+}
+```
