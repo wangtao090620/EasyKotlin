@@ -432,7 +432,9 @@ fun run05() {
 [8, 10]
 ```
 
-#### f、
+#### f、dropWhile(predicate: (T) -> Boolean): List<T>
+
+去除
 
 ### 7、映射操作函数
 

@@ -61,4 +61,17 @@ class ListTest02 {
     }
 
 
+    @Test
+    fun run06() {
+
+        val list = arrayListOf(2, 1, 6, 8, 10)
+
+        val subList = list.dropWhile { it % 2 == 0 }
+
+        println(subList)
+    }
+
+
+
+
 }
